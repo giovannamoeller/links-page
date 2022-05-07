@@ -1,7 +1,87 @@
+$top: 240px;
+$top-media: 200px;
+
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@mixin arrowAnimation($topValue, $rightValue) {
+  animation: arrowMoving 12s infinite;
+  @keyframes arrowMoving {
+    0% {
+      top: 0;
+      right: -2rem;
+      transform: scale(1.0);
+    }
+  
+    10% {
+      top: 0;
+      right: -1rem;
+      transform: scale(1.0);
+    }
+  
+    20% {
+      top: 0;
+      right: -1rem;
+      transform: scale(0.7);
+    }
+  
+    25% {
+      top: 0;
+      right: -1rem;
+      transform: scale(1.0);
+    }
+  
+    35% {
+      top: 0;
+      right: -2rem;
+      transform: scale(1.0);
+    }
+  
+    45% {
+      top: $topValue;
+      right: -2rem;
+      transform: scale(1.0);
+    }
+  
+    55% {
+      top: $topValue;
+      right: $rightValue;
+      transform: scale(1.0);
+    }
+  
+    65% {
+      top: $topValue;
+      right: $rightValue;
+      transform: scale(0.7);
+    }
+  
+    70% {
+      top: $topValue;
+      right: $rightValue;
+      transform: scale(1.0);
+    }
+  
+    80% {
+      top: $topValue;
+      right: $rightValue;
+      transform: scale(1.0);
+    }
+  
+    90% {
+      top: $topValue;
+      right: -2rem;
+      transform: scale(1.0);
+    }
+  
+    100% {
+      top: 0;
+      right: -2rem;
+      transform: scale(1.0);
+    }
+  }
 }
 
 header {
@@ -18,7 +98,12 @@ header {
     width: 2rem;
     position: absolute;
     top: 0;
-    animation: arrowMoving 12s infinite;
+    @media screen and (max-width: 420px) {
+      @include arrowAnimation(-180px, 60px);
+    }
+    @media screen and (min-width: 420px) {
+      @include arrowAnimation(-240px, 120px);
+    }
   }
   .name-box {
     .box-image {
@@ -34,81 +119,22 @@ header {
       margin-top: -4.5rem;
     }
   }
-}
-
-@keyframes arrowMoving {
-  0% {
-    top: 0;
-    right: -32px;
-    transform: scale(1.0);
-  }
-
-  10% {
-    top: 0;
-    right: -16px;
-    transform: scale(1.0);
-  }
-
-  20% {
-    top: 0;
-    right: -16px;
-    transform: scale(0.7);
-  }
-
-  25% {
-    top: 0;
-    right: -16px;
-    transform: scale(1.0);
-  }
-
-  35% {
-    top: 0;
-    right: -32px;
-    transform: scale(1.0);
-  }
-
-  45% {
-    top: -240px;
-    right: -32px;
-    transform: scale(1.0);
-  }
-
-  55% {
-    top: -240px;
-    right: 100px;
-    transform: scale(1.0);
-  }
-
-  65% {
-    top: -240px;
-    right: 100px;
-    transform: scale(0.7);
-  }
-
-  70% {
-    top: -240px;
-    right: 100px;
-    transform: scale(1.0);
-  }
-
-  80% {
-    top: -240px;
-    right: 100px;
-    transform: scale(1.0);
-  }
-
-  90% {
-    top: -240px;
-    right: -32px;
-    transform: scale(1.0);
-  }
-
-  100% {
-    top: 0;
-    right: -32px;
-    transform: scale(1.0);
+  @media screen and (max-width: 420px) {
+    .profileImage {
+      width: 148px;
+    }
+    .name-box {
+      h1 {
+        font-size: 1.5rem;
+        margin-top: -3.5rem;
+      }
+    }
+    .box-image .box {
+      width: 260px;
+    }
   }
 }
+
 
 .links {
   display: grid;
@@ -116,6 +142,10 @@ header {
   column-gap: 3rem;
   row-gap: 2rem;
   margin: 2rem 0;
+  @media screen and (max-width: 520px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .link {

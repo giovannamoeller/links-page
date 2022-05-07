@@ -19,7 +19,7 @@ function Home() {
         <img src={profileImage} className='profileImage' alt='Giovanna Moeller'/>
         <div className='name-box'>
           <div className='box-image'>
-            <img src={boxImage} alt='Box'/>
+            <img src={boxImage} alt='Box' className='box'/>
             <img src={arrowImage} alt='Arrow' className='arrow-image'/>
           </div>
           <h1>

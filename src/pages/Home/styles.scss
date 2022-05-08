@@ -99,7 +99,6 @@ header {
     position: absolute;
     top: 0;
     @media screen and (max-width: 420px) {
-      width: 1.5rem;
       @include arrowAnimation(-180px, 60px);
     }
     @media screen and (min-width: 420px) {
